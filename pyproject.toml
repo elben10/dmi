@@ -1,0 +1,16 @@
+[tool.poetry]
+authors = ["Jakob Jul Elben <elbenjakobjul@gmail.com>"]
+description = ""
+name = "dmi"
+readme = "README.md"
+version = "0.1.0"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.group.api.dependencies]
+dmi-api = {path = "packages/api", develop = true}
+
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core"]
