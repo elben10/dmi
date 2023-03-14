@@ -1,0 +1,16 @@
+[tool.poetry]
+authors = ["Jakob Jul Elben <elbenjakobjul@gmail.com>"]
+description = ""
+name = "dmi-api"
+packages = [
+  {include = "dmi"},
+]
+version = "0.1.0"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+fastapi = "^0.94.1"
+
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core"]
