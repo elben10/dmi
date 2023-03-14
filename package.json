@@ -1,0 +1,11 @@
+{
+  "name": "dmi-frontend",
+  "version": "1.0.0",
+  "repository": "https://github.com/elben10/dmi.git",
+  "author": "Jakob Jul Elben <elbenjakobjul@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/frontend"
+  ]
+}
