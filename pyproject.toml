@@ -11,6 +11,26 @@ python = "^3.8"
 [tool.poetry.group.api.dependencies]
 dmi-api = {path = "packages/api", develop = true}
 
+[tool.poetry.group.dev.dependencies]
+black = "^23.1.0"
+isort = "^5.12.0"
+nox = "^2022.11.21"
+pyright = "^1.1.299"
+pytest = "^7.2.2"
+ruff = "^0.0.256"
+
 [build-system]
 build-backend = "poetry.core.masonry.api"
 requires = ["poetry-core"]
+
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+markers = [
+  "unit",
+  "integration",
+  "e2e",
+]
+
+[tool.pyright]
