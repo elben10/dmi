@@ -6,6 +6,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Install yarn
+        run: |
+          npm install --global yarn
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: |
+          yarn install
       - name: Install poetry
         run: |
           pipx install poetry
@@ -24,12 +33,3 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 18
-      - name: Install dependencies
-        run: |
-          yarn install
-      - name: Run test suite - Python
-        run: |
-          yarn run test
