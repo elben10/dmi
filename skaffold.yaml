@@ -1,0 +1,36 @@
+apiVersion: skaffold/v4beta3
+kind: Config
+metadata:
+  name: dmi
+build:
+  tagPolicy:
+    sha256: {}
+  artifacts:
+    - image: backend
+      context: .
+      docker:
+        dockerfile: images/backend/Dockerfile
+        target: dev
+      sync:
+        manual:
+          - src: "packages/api/**/*.py"
+            dest: .
+    - image: frontend
+      context: .
+      docker:
+        dockerfile: images/frontend/Dockerfile
+        target: dev
+      sync:
+        manual:
+          - src: "packages/frontend/**/*.ts"
+            dest: .
+          - src: "packages/frontend/**/*.tsx"
+            dest: .
+          - src: "packages/frontend/**/*.html"
+            dest: .
+          - src: "packages/frontend/**/*.css"
+            dest: .
+manifests:
+  kustomize:
+    paths:
+      - manifests/development
