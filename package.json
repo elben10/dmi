@@ -19,6 +19,16 @@
     "typescript": "^4.9.5",
     "typescript-eslint": "^0.0.1-alpha.0"
   },
+  "scripts": {
+    "test": "yarn test:lint && yarn test:format && yarn test:type && yarn test:unit",
+    "test:ci": "yarn test:lint && yarn test:format && yarn test:type && jest",
+    "test:e2e": "jest --group=e2e",
+    "test:format": "prettier --check packages",
+    "test:integration": "jest --group=integration",
+    "test:lint": "eslint --ext .ts,.tsx packages",
+    "test:type": "yarn workspace frontend tsc --noEmit",
+    "test:unit": "jest --group=unit"
+  },
   "jest": {
     "runner": "groups"
   },
