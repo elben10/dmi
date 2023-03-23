@@ -1,0 +1,32 @@
+name: Continuous Integration
+on: [push, pull_request]
+jobs:
+  test-python:
+    name: Test - Python
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+          cache: "poetry"
+      - name: Install dependencies
+        run: |
+          poetry install
+      - name: Run test suite - Python
+        run: |
+          poetry run nox
+  test-node:
+    name: Test - Node
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: |
+          yarn install
+      - name: Run test suite - Python
+        run: |
+          yarn run test
